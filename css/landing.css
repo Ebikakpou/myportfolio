@@ -1,0 +1,83 @@
+/* Basic styling and typography */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.container {
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+/* Flexbox for Header (mobile-first) */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+}
+nav {
+  display: flex;
+  flex-direction: column; /* Stack nav items vertically on mobile */
+  align-items: center; /* Center them */
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em;
+  transition: color 0.3s; /* Add a smooth transition */
+}
+nav a:hover {
+  color: lightblue;
+}
+
+/* Main content layout (mobile-first) */
+.main-content {
+  display: flex;
+  flex-direction: column; /* Stack sections on mobile */
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.intro, .features {
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* Footer (flexbox and centering) */
+footer {
+  text-align: center;
+  background-color: #ddd;
+  padding: 1rem;
+}
+
+/* Add a simple hover animation for fun */
+h2:hover, h3:hover {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  /* Flexbox for horizontal navigation */
+  nav {
+    flex-direction: row; /* Change to row for desktop */
+    justify-content: space-between; /* Space out items */
+    align-items: center;
+  }
+  
+  /* Grid for Main content layout */
+  .main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two columns for desktop */
+    gap: 2rem;
+  }
+}
+
