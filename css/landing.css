@@ -1,83 +1,381 @@
-/* Basic styling and typography */
+/* Universal Styles & Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes padding and border included in the element's total width/height */
+}
+
 body {
-  font-family: sans-serif;
-  margin: 0;
-  line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
 }
 
 .container {
-  padding: 1em;
-  margin: 0 auto;
-  max-width: 960px;
+    max-width: 1000px; /* Limits the width of content for better readability */
+    margin: 0 auto;    /* Centers the container horizontally */
+    padding: 1rem;     /* Adds space inside the container */
 }
 
-/* Flexbox for Header (mobile-first) */
-header {
-  background-color: #333;
-  color: white;
-  padding: 1rem 0;
-}
-nav {
-  display: flex;
-  flex-direction: column; /* Stack nav items vertically on mobile */
-  align-items: center; /* Center them */
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5em;
-  transition: color 0.3s; /* Add a smooth transition */
-}
-nav a:hover {
-  color: lightblue;
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color change on hover */
 }
 
-/* Main content layout (mobile-first) */
-.main-content {
-  display: flex;
-  flex-direction: column; /* Stack sections on mobile */
-  gap: 2rem;
-  padding: 2rem 0;
+a:hover {
+    color: #0056b3;
 }
 
-.intro, .features {
-  padding: 1.5rem;
-  border-radius: 8px;
-  background-color: #f4f4f4;
-  text-align: center;
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: #222;
 }
 
-/* Footer (flexbox and centering) */
+/* Header (Navbar) */
+.navbar {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar .container {
+    display: flex; /* Flexbox: arranges children in a row by default */
+    justify-content: space-between; /* Pushes logo to left, nav to right */
+    align-items: center; /* Vertically centers items */
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar nav a {
+    color: #fff;
+    margin-left: 1.5rem; /* Space between nav links */
+    font-size: 1.1rem;
+}
+
+.navbar nav a:hover {
+    color: #007bff;
+}
+
+/* Hero/About Section */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #fff;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    margin-bottom: 1.5rem;
+    border: 4px solid #007bff;
+    transition: transform 0.3s ease; /* Smooth scale on hover */
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Slightly enlarges image on hover */
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0.5rem auto;
+}
+
+/* Skills Section - Using Flexbox */
+#skills {
+    padding: 2rem 1rem;
+    background: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#skills h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.skills-grid {
+    display: flex; /* Flexbox: arrange skill items */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
+    justify-content: center; /* Centers items horizontally */
+    gap: 1rem; /* Space between skill items */
+}
+
+.skill-item {
+    background: #007bff;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth effects */
+    cursor: pointer;
+}
+
+.skill-item:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Projects Section - Using CSS Grid */
+#projects {
+    padding: 2rem 1rem;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#projects h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.projects-grid {
+    display: grid; /* CSS Grid: create a grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+    gap: 2rem; /* Space between grid items */
+}
+
+.project-card {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth effects */
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.project-card h3 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.social-links a {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+}
+
+/* Footer */
 footer {
-  text-align: center;
-  background-color: #ddd;
-  padding: 1rem;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: #333;
+    color: #fff;
 }
 
-/* Add a simple hover animation for fun */
-h2:hover, h3:hover {
-  animation: bounce 0.5s;
+/* Media Queries for Responsiveness (Mobile-first approach is already in default styles) */
+/* This will apply when screen width is at least 768px (tablets and desktops) */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column; /* Stack navbar items vertically on smaller screens */
+        text-align: center;
+    }
+    .navbar .logo {
+        margin-bottom: 1rem;
+    }
+    .navbar nav a {
+        margin: 0 0.8rem; /* Adjust spacing for stacked nav links */
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .skills-grid, .projects-grid {
+        gap: 1rem; /* Adjust gap for smaller screens */
+    }
+
+    .skill-item {
+        padding: 0.6rem 1rem;
+    }
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Even smaller screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+    .navbar nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+    }
+    .hero {
+        padding: 2rem 0.5rem;
+    }
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+    .about-content p {
+        font-size: 1rem;
+    }
+    .skills-grid {
+        flex-direction: column; /* Stack skill items */
+        align-items: center;
+    }
+    .skill-item {
+        width: 80%; /* Make them wider when stacked */
+        text-align: center;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
 }
 
-/* Media Query for Larger Screens */
-@media (min-width: 768px) {
-  /* Flexbox for horizontal navigation */
-  nav {
-    flex-direction: row; /* Change to row for desktop */
-    justify-content: space-between; /* Space out items */
-    align-items: center;
-  }
-  
-  /* Grid for Main content layout */
-  .main-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Two columns for desktop */
-    gap: 2rem;
-  }
+/* ... (existing CSS styles) ... */
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
 }
 
+body.dark-mode .navbar {
+    background: #0d0d0d;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+body.dark-mode .navbar .logo,
+body.dark-mode .navbar nav a {
+    color: #fff;
+}
+
+body.dark-mode .hero,
+body.dark-mode #projects {
+    background: #2a2a2a;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+body.dark-mode #skills,
+body.dark-mode #contact {
+    background: #333;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #fff;
+}
+
+body.dark-mode a {
+    color: #88bbff;
+}
+
+body.dark-mode a:hover {
+    color: #6699ee;
+}
+
+body.dark-mode .profile-pic {
+    border-color: #88bbff;
+}
+
+body.dark-mode .skill-item {
+    background: #88bbff;
+    color: #1a1a1a;
+}
+
+body.dark-mode .skill-item:hover {
+    background-color: #6699ee;
+}
+
+body.dark-mode .project-card {
+    background: #3a3a3a;
+    border-color: #555;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .project-card:hover {
+    box-shadow: 0 8px 15px rgba(255,255,255,0.1);
+}
+
+body.dark-mode .project-card h3 {
+    color: #88bbff;
+}
+
+body.dark-mode .social-links a {
+    background: #555;
+    color: #fff;
+}
+
+body.dark-mode .social-links a:hover {
+    background-color: #777;
+}
+
+body.dark-mode footer {
+    background: #0d0d0d;
+    color: #e0e0e0;
+}
+
+/* Mode Toggle Button Styling */
+.mode-toggle {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 1.5rem; /* Adjust margin */
+    transition: background-color 0.3s ease;
+}
+
+.mode-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query adjustments for the button */
+@media (max-width: 768px) {
+    .mode-toggle {
+        margin-top: 1rem; /* Space when stacked */
+        margin-left: 0;
+    }
+}
